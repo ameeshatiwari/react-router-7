@@ -4,16 +4,33 @@ import About from "./About";
 import Login from "./login";
 import Navbar from "./Navbar";
 import PageNotFound from "./PageNotFound";
+import College from "./College";
+import Student from "./Student";
+import Department from "./Department";
+import Details from "./Detials"; // make sure "Detials" is not a typo!
+
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/*" element={<PageNotFound />} />
-        {/* <Route path="/*" element={<Navigate to="/login" />}></Route> */}
+        <Route element={<Navbar />}>
+          <Route path="/" element={<Home />} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
+        </Route>
+
+        <Route path="/college" element={<College />}>
+          <Route path="student" element={<Student />} />
+          <Route path="department" element={<Department />} />
+          <Route path="details" element={<Details />} />
+        </Route>
+
+        {/* <Route path="*" element={<PageNotFound />} /> */}
+        <Route path="/*" element={<Navigate to="/" />}></Route>
+        {/* Or if you want to redirect all unknown routes to login: */}
+        {/* <Route path="*" element={<Navigate to="/login" />} /> */}
       </Routes>
     </>
   );
