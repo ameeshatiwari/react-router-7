@@ -31,6 +31,11 @@ export default function Navbar() {
                 College
               </Link>
             </li>
+            <li>
+              <Link className="link" to="/user">
+                User
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
